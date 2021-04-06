@@ -8,27 +8,26 @@ import Header from './components/Header';
 axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
-	const dispatch = useDispatch();
-	const { photos } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { photos } = useSelector(state => state);
 
-	useEffect(
-		() => {
-			dispatch(fetchPhotos());
-		},
-		[ dispatch ]
-	);
+  useEffect(() => {
+    dispatch(fetchPhotos());
+  }, [dispatch]);
 
-	console.log('photos', photos);
+  console.log('photos', photos);
 
-	return (
-		<AppWrap>
-			<GlobalStyle />
-			<Header />
-		</AppWrap>
-	);
+  return (
+    <AppWrap>
+      <GlobalStyle />
+      <Header />
+    </AppWrap>
+  );
 }
 
-const AppWrap = styled.div`margin: 0 auto;`;
+const AppWrap = styled.div`
+  margin: 0 auto;
+`;
 
 const GlobalStyle = createGlobalStyle`
   * {
