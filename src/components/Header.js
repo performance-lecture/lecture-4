@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCategory } from '../modules/photos-slice';
+import { setCategory } from '../redux/category';
 
 function Header() {
 	const dispatch = useDispatch();
 	const { category } = useSelector((state) => ({
-		category: state.photos.category
+		category: state.category.category
 	}));
 
 	return (
@@ -14,25 +14,17 @@ function Header() {
 			<Nav>
 				<NavList>
 					<NavItem
-						active={category === ''}
+						active={category === 'all'}
 						onClick={() => {
-							dispatch(changeCategory(''));
+							dispatch(setCategory('all'));
 						}}
 					>
 						<span>All</span>
 					</NavItem>
 					<NavItem
-						active={category === 'random'}
-						onClick={() => {
-							dispatch(changeCategory('random'));
-						}}
-					>
-						<span>Random</span>
-					</NavItem>
-					<NavItem
 						active={category === 'animals'}
 						onClick={() => {
-							dispatch(changeCategory('animals'));
+							dispatch(setCategory('animals'));
 						}}
 					>
 						<span>Animals</span>
@@ -40,7 +32,7 @@ function Header() {
 					<NavItem
 						active={category === 'food'}
 						onClick={() => {
-							dispatch(changeCategory('food'));
+							dispatch(setCategory('food'));
 						}}
 					>
 						<span>Food</span>
@@ -48,7 +40,7 @@ function Header() {
 					<NavItem
 						active={category === 'fashion'}
 						onClick={() => {
-							dispatch(changeCategory('fashion'));
+							dispatch(setCategory('fashion'));
 						}}
 					>
 						<span>Fashion</span>
@@ -56,7 +48,7 @@ function Header() {
 					<NavItem
 						active={category === 'travel'}
 						onClick={() => {
-							dispatch(changeCategory('travel'));
+							dispatch(setCategory('travel'));
 						}}
 					>
 						<span>Travel</span>
