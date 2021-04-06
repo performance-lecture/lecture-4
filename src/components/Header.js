@@ -68,7 +68,7 @@ function Header() {
 }
 
 const HeaderWrap = styled.header`
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid #666;
 `;
 
 const Nav = styled.nav`
@@ -85,12 +85,12 @@ const NavItem = styled.li`
     padding: 0 2rem;
     font-size: 1.5em;
     font-weight: 700;
-    color: ${({ active }) => (active ? '#000' : '#999')};
+    color: ${({ active }) => (active ? '#fff' : '#999')};
     cursor: pointer;
   }
 
   span:hover {
-    color: #000;
+    color: #fff;
   }
 `;
 

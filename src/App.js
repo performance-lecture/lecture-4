@@ -1,26 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { fetchPhotos } from './redux/photos';
-import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Header from './components/Header';
+import PhotoListContainer from './containers/PhotoListContainer';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
-  const dispatch = useDispatch();
-  const { photos } = useSelector(state => state);
-
-  useEffect(() => {
-    dispatch(fetchPhotos());
-  }, [dispatch]);
-
-  console.log('photos', photos);
-
   return (
     <AppWrap>
       <GlobalStyle />
       <Header />
+      <PhotoListContainer />
     </AppWrap>
   );
 }
@@ -38,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   html, body {
     font-size: 16px;
+    background-color: #000;
   }
 
   ul, li, ol {
