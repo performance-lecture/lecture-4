@@ -24,7 +24,8 @@ const ModalWrap = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: ${({ bgColor }) =>
+    `rgba(${bgColor.r}, ${bgColor.g}, ${bgColor.b}, 0.8)`};
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   z-index: 999;
   * {

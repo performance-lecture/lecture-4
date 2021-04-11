@@ -1,27 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import ImageModal from './ImageModal';
+import { useDispatch } from 'react-redux';
+import { showModal } from '../redux/imageModal';
 
 function PhotoItem({ photo: { urls, alt } }) {
-  const [modalVisible, setModalVisible] = useState(false);
+  const dispatch = useDispatch();
 
   const openModal = () => {
-    setModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setModalVisible(false);
+    dispatch(showModal({ src: urls.full, alt }));
   };
 
   return (
     <ImageWrap>
       <Image src={urls.small} alt={alt} onClick={openModal} />
-      <ImageModal
-        fullImageUrl={urls.full}
-        alt={alt}
-        modalVisible={modalVisible}
-        closeModal={closeModal}
-      />
     </ImageWrap>
   );
 }

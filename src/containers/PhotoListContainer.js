@@ -28,13 +28,7 @@ function PhotoListContainer() {
     return <span>loading...</span>;
   }
 
-  console.log('loading', loading);
-
-  return (
-    <>
-      <PhotoList photos={photos} />
-    </>
-  );
+  return <PhotoList photos={photos} />;
 }
 
 export default PhotoListContainer;

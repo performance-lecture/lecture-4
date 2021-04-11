@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import axios from 'axios';
 import Header from './components/Header';
 import PhotoListContainer from './containers/PhotoListContainer';
+import ImageModalContainer from './containers/ImageModalContainer';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 
@@ -12,6 +13,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <PhotoListContainer />
+      <ImageModalContainer />
     </AppWrap>
   );
 }
