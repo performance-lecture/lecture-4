@@ -12,7 +12,7 @@ function PhotoItem({ photo: { urls, alt } }) {
 
   return (
     <ImageWrap>
-      <Image src={urls.small} alt={alt} onClick={openModal} />
+      <Image src={urls.small + '&t=' + new Date().getTime()} alt={alt} onClick={openModal} />
     </ImageWrap>
   );
 }
