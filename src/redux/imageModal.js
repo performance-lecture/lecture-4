@@ -5,10 +5,11 @@ export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 export const SET_BG_COLOR = 'SET_BG_COLOR';
 
-export const showModal = ({ src, alt }) => ({
+export const showModal = ({ src, alt, id }) => ({
   type: SHOW_MODAL,
   src,
   alt,
+  id,
 });
 export const hideModal = () => ({ type: HIDE_MODAL });
 export const setBgColor = bgColor => ({ type: SET_BG_COLOR, bgColor });
@@ -21,6 +22,7 @@ const { reducer: imageModalReducer } = createSlice({
     bgColor: { r: 0, g: 0, b: 0 },
     src: '',
     alt: '',
+    id: '',
   },
   reducers: {},
   extraReducers: {
@@ -29,6 +31,7 @@ const { reducer: imageModalReducer } = createSlice({
       state.src = action.src;
       state.alt = action.alt;
       state.bgColor = { r: 0, g: 0, b: 0 };
+      state.id = action.id;
     },
     HIDE_MODAL: state => {
       state.modalVisible = false;

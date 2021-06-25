@@ -4,17 +4,23 @@ import { useDispatch } from 'react-redux';
 import LazyLoad from 'react-lazyload';
 import { showModal } from '../redux/imageModal';
 
-function PhotoItem({ photo: { urls, alt } }) {
+function PhotoItem({ photo: { id, urls, alt } }) {
   const dispatch = useDispatch();
 
   const openModal = () => {
-    dispatch(showModal({ src: urls.full, alt }));
+    dispatch(showModal({ src: urls.full, alt, id }));
   };
 
   return (
     <ImageWrap>
       <LazyLoad offset={1000}>
-        <Image src={urls.small + '&t=' + new Date().getTime()} alt={alt} onClick={openModal} />
+        <Image
+          crossOrigin="*"
+          id={id}
+          src={urls.small + '&t=' + new Date().getTime()}
+          alt={alt}
+          onClick={openModal}
+        />
       </LazyLoad>
     </ImageWrap>
   );
